@@ -17,61 +17,60 @@ import java.util.Scanner;
  */
 public class SungJukV3b {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         //변수선언
-        int n=1;
 
-        for(n=1;n<4;n++) {
-            System.out.println(n + "번째 학생 성적 입력중...");
-            Scanner scanner = new Scanner(System.in);
+        String name[] = new String[3];
+        int kor[] = new int[3];
+        int eng[] = new int[3];
+        int mat[] = new int[3];
+        int sum[] = new int[3];
+        double mean[] = new double[3];
+        char grd[] = new char[3];
+        String fnt = "이름 : %s\n국어 : %d\n영어 : %d\n수학 : %d\n총점 : %d\n평균 : %s\n학점 : %c\n";
+
+        for (int i=0; i<3;i++){
+            System.out.println((i+1) + "번째 학생 성적 입력중...");
             System.out.print("이름을 입력하세요 : ");
-            String name = scanner.nextLine();
+            name[i] = scanner.nextLine();
             System.out.print("국어점수를 입력하세요 : ");
-            int kor = scanner.nextInt();
+            kor[i] = scanner.nextInt();
             System.out.print("영어점수를 입력하세요 : ");
-            int eng = scanner.nextInt();
+            eng[i] = scanner.nextInt();
             System.out.print("수학점수를 입력하세요 : ");
-            int mat = scanner.nextInt();
+            mat[i] = scanner.nextInt();
+        }
 
-            int sum = 0;
-            double mean = 0.0;
-            char grd = '가';
-            String fnt = "이름 : %s\n국어 : %d\n영어 : %d\n수학 : %d\n총점 : %d\n평균 : %s\n학점 : %c\n";
-            String result;
+        // 처리
+        for (int i=0; i<3;i++) {
 
-            // 처리
-            sum = mat + kor + eng;
-            mean = (double) sum / 3;
+            sum[i] = mat[i] + kor[i] + eng[i];
+            mean[i] = (double) sum[i] / 3;
 
             //switch
-            switch ((int) mean / 10) {
+            switch ((int) (mean[i] / 10)) {
                 case 10:
                 case 9:
-                    grd = '수';
+                    grd[i] = '수';
                     break;
                 case 8:
-                    grd = '우';
+                    grd[i] = '우';
                     break;
                 case 7:
-                    grd = '미';
+                    grd[i] = '미';
                     break;
                 case 6:
-                    grd = '양';
+                    grd[i] = '양';
                     break;
                 default:
-                    grd = '가';
+                    grd[i] = '가';
                     break;
 
             }
-            //Math.round() : 소수점 반올림 함수
-            mean = Math.round(mean * 100) / 100.0;
-            //숫자를 문자로 변환
-            result = String.format(fnt, name, kor, eng, mat, sum, String.valueOf(mean), grd);
-
-            //결과출력
-
-            //문자열 연결 연산자(+)로 문장을 만드는 경우
-            //String 변수의 특성 때문에 성능 저하 발생
-            System.out.println(result);
+        }
+        //결과출력
+        for (int i=0; i<3;i++) {
+            System.out.printf(fnt, name, kor, eng, mat, sum, mean, grd);
         }
     }
 }
