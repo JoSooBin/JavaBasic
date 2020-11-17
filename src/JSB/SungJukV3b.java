@@ -34,13 +34,13 @@ public class SungJukV3b {
             System.out.print("이름을 입력하세요 : ");
             name[i] = sc.nextLine();
             System.out.print("국어점수를 입력하세요 : ");
-            kor[i] = sc.nextInt(); //문자열을 int숫자로 변환
+            kor[i] = Integer.parseInt(sc.nextLine()); //문자열을 int숫자로 변환
             System.out.print("영어점수를 입력하세요 : ");
-            eng[i] = sc.nextInt();
+            eng[i] = Integer.parseInt(sc.nextLine());
             System.out.print("수학점수를 입력하세요 : ");
-            mat[i] = sc.nextInt();
+            mat[i] = Integer.parseInt(sc.nextLine());
 
-            sc.skip("\r\n|[\n\r]");
+            //sc.skip("\r\n|[\n\r]");
             //수학성적 입력시 같이 입력된 enter가 다음 데이터 입력시 입력값으로 자동 전달됨.
             //해결방법: 미리 엔터키를 제거하는 코드 삽입
         }
