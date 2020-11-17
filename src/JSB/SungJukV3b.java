@@ -34,7 +34,7 @@ public class SungJukV3b {
             System.out.print("이름을 입력하세요 : ");
             name[i] = sc.nextLine();
             System.out.print("국어점수를 입력하세요 : ");
-            kor[i] = sc.nextInt();
+            kor[i] = sc.nextInt(); //문자열을 int숫자로 변환
             System.out.print("영어점수를 입력하세요 : ");
             eng[i] = sc.nextInt();
             System.out.print("수학점수를 입력하세요 : ");
