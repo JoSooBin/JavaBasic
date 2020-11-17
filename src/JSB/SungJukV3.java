@@ -34,7 +34,7 @@ public class SungJukV3 {
         int sum = 0;
         double mean = 0.0;
         char grd = '가';
-        String fnt = "이름 : %s\n국어 : %d\n영어 : %d\n수학 : %d\n총점 : %d\n평균 : %.2f\n학점 : %c\n";
+        String fnt = "이름 : %s\n국어 : %d\n영어 : %d\n수학 : %d\n총점 : %d\n평균 : %s\n학점 : %c\n";
         String result;
 
         // 처리
@@ -53,13 +53,13 @@ public class SungJukV3 {
         }
         //Math.round() : 소수점 반올림 함수
         mean = Math.round(mean*100)/100.0;
-
-        result = String.format(fnt, name,kor,eng,mat,sum,mean,grd);
+        //숫자를 문자로 변환
+        result = String.format(fnt, name,kor,eng,mat,sum,String.valueOf(mean),grd);
 
         //결과출력
 
-           //문자열 연결 연산자(+)로 문장을 만드는 경우
-          //String 변수의 특성 때문에 성능 저하 발생
-                System.out.println(result);
+        //문자열 연결 연산자(+)로 문장을 만드는 경우
+        //String 변수의 특성 때문에 성능 저하 발생
+        System.out.println(result);
     }
 }
