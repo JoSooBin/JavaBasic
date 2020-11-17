@@ -39,6 +39,8 @@ public class SungJukV3b {
             eng[i] = scanner.nextInt();
             System.out.print("수학점수를 입력하세요 : ");
             mat[i] = scanner.nextInt();
+
+            //수학성적 입력시 같이 입력된 enter가 다음 데이터 입력시 입력값으로 자동 전달됨.
         }
 
         // 처리
