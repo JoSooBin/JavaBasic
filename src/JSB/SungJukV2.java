@@ -20,11 +20,11 @@ public class SungJukV2 {
         //변수선언
         Scanner scanner = new Scanner(System.in);
         String name = "조수빈";   //한글자:char =''
-        System.out.println("국어점수를 입력하세요 : ");
+        System.out.print("국어점수를 입력하세요 : ");
         int kor = scanner.nextInt();
-        System.out.println("영어점수를 입력하세요 : ");
+        System.out.print("영어점수를 입력하세요 : ");
         int eng = scanner.nextInt();
-        System.out.println("수학점수를 입력하세요 : ");
+        System.out.print("수학점수를 입력하세요 : ");
         int mat = scanner.nextInt();
 
         int sum = 0;
@@ -37,13 +37,16 @@ public class SungJukV2 {
 
         //switch
         switch ((int)mean/10){
-            case 9: grd = '수';
-            case 8: grd = '우' ;
-            case 7: grd = '미' ;
-            case 6: grd = '양' ;
-            default: grd = '가' ;
-;
+            case 10:
+            case 9: grd = '수'; break;
+            case 8: grd = '우' ; break;
+            case 7: grd = '미' ; break;
+            case 6: grd = '양' ; break;
+            default: grd = '가' ; break;
+
         }
+        //String.format(형식지정자, 변수들)
+        mean = Double.parseDouble(String.format("%.1f", mean));
 
         //결과출력
         System.out.println("이름 : " + name);
@@ -52,7 +55,8 @@ public class SungJukV2 {
         System.out.println("수학 : " + mat);
         System.out.println("-----------");
         System.out.println("총점 : " + sum);
-        System.out.printf("평균 : %.1f\n", mean); //printf문 안쓸라했는데 이게 최선이래ㅇ_ㅇ
+        //System.out.printf("평균 : %.1f\n", mean);
+        System.out.println("평균 : " + mean);
         System.out.println("학점 : " + grd);
 
     }
