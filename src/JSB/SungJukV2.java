@@ -52,7 +52,7 @@ public class SungJukV2 {
         System.out.println("수학 : " + mat);
         System.out.println("-----------");
         System.out.println("총점 : " + sum);
-        System.out.println("평균 : " + mean); //소수점 첫째자리까지 표기하는거 못함.
+        System.out.printf("평균 : %.1f\n", mean); //printf문 안쓸라했는데 이게 최선이래ㅇ_ㅇ
         System.out.println("학점 : " + grd);
 
     }
