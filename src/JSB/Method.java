@@ -54,6 +54,7 @@ public class Method {
         System.out.println(result);*/
 
         computeNum(1,5);
+        computeAllSum(2,5);
     }
     
     //간단한 인사 출력 메서드
@@ -100,4 +101,19 @@ public class Method {
         System.out.println(result);
     }
 
+    //두 개의 정수를 매개변수로 선언하고
+    //두 정수를 범위로 설정해서 그것의 모든 합을 구하고 출력하는 메서드 : computeAllSum
+    //ex) 5,1 -> 1+2+3+4+5 = 15
+    public static void computeAllSum( int num1, int num2 ) { //정의
+        int sum = 0;
+        int min = num1;
+        int max = num2;
+        if(num1 > num2){ min =num2; max = num1; } //앞의 숫자가 더 클 때.
+        for (int i = min; i <= max; i++) {
+            sum += i;
+        }
+
+        System.out.println(sum);
+    }
 }
+
