@@ -113,6 +113,9 @@ public class Method {
             sum += i;
         }
 
+        //String fmt = "%d ~ %d 정수 범위 총합 : %d";
+        //System.out.println(fmt, min, max, sum); //선생님 출력방법
+
         System.out.println(sum);
     }
 }
