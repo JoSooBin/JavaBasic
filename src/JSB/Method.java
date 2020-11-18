@@ -55,6 +55,7 @@ public class Method {
 
         computeNum(1,5);
         computeAllSum(2,5);
+        computeAllSum2(2,5);
     }
     
     //간단한 인사 출력 메서드
@@ -112,6 +113,21 @@ public class Method {
         for (int i = min; i <= max; i++) {
             sum += i;
         }
+
+        //String fmt = "%d ~ %d 정수 범위 총합 : %d";
+        //System.out.println(fmt, min, max, sum); //선생님 출력방법
+
+        System.out.println(sum);
+    }
+
+    //가우스공식 활용
+    public static void computeAllSum2( int num1, int num2 ) { //정의
+        int sum = 0;
+        int min = num1;
+        int max = num2;
+        if(num1 > num2){ min =num2; max = num1; } //앞의 숫자가 더 클 때.
+
+        sum=(min+max)*(max/2);
 
         //String fmt = "%d ~ %d 정수 범위 총합 : %d";
         //System.out.println(fmt, min, max, sum); //선생님 출력방법
