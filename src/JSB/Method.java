@@ -55,7 +55,7 @@ public class Method {
 
         computeNum(1,5);
         computeAllSum(2,5);
-        computeAllSum2(2,5);
+        computeAllSum2(5,2);
     }
     
     //간단한 인사 출력 메서드
