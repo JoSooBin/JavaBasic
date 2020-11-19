@@ -1,5 +1,5 @@
 package Lab.movies;
-
+//출력 교재 120~168p
 public class MovieMain {
     public static void main(String[] args) {
         String[] genre = {"드라마"}; //길어서 그냥 변수선언
