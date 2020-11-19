@@ -56,7 +56,7 @@ public class OOP {
 최승희 : 의사, 45, 여, A
 이미녀 : 골프선수, 28, 여, O
 김미남: 교수, 47, 남, AB*/
-class Person { //클래스는 대문자, 변수는 소문자여야 함.
+class Person {
     String name, job, gender, blood;
     int age;
 }
