@@ -4,7 +4,7 @@ public class Actor {
     //멤버변수
     private String name;
     private String birth;
-    private String[] joinmovie;
+    private String[] joinmovie; //참여한 영화'들' 이므로 배열
     private String[] csating;
 
     //생성자
