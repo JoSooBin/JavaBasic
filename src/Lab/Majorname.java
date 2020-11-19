@@ -1,5 +1,5 @@
 package Lab;
-
+//학과
 public class Majorname {
     /*학과명
     전화번호
@@ -7,6 +7,7 @@ public class Majorname {
     학과장*/
     String dept,phone,office,chief;
 
+    //기본생성자
     public Majorname(){
         dept = "의상디자인";
         phone = "234-5678-9012";

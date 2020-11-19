@@ -11,10 +11,6 @@ public class EX01 {
         //교수 클래스를 이용해서 객체생성
         Professor prof = new Professor();
 
-        //각 객체의 변수에 값 대입
-
-        // 객체에 저장된 값 출력
-
         //학생 클래스
             //201350050
             //김태희
@@ -22,15 +18,18 @@ public class EX01 {
             //1985.3.22
             //컴퓨터
             //504
-        Student kim = new Student();
-        //기본 생성자로 초기화된 변수 확인
-        System.out.println(kim.stdno);
-        System.out.println(kim.name);
-        System.out.println(kim.addr);
-        System.out.println(kim.dept);
-        System.out.println(kim.birth);
-        System.out.println(kim.prof);
 
+        //기본 생성자로 만든 객체 내용 출력
+        System.out.println("==기본 생성자로 만든 객체 내용 출력==");
+        System.out.println(Kim.name);
+        System.out.println(comptuer.dept);
+        System.out.println(programming.subjname);
+        System.out.println(prof.no);
+        System.out.println("=================");
+
+        //각 객체의 변수에 값 대입
+
+        // 객체에 저장된 값 출력
         Kim.stdno = 201350050;
         Kim.name = "김태희";
         Kim.addr = "경기도고양시";
@@ -103,6 +102,8 @@ public class EX01 {
         System.out.println(prof.no);
         System.out.println(prof.name);
         System.out.println(prof.mjfiled);
+
+
 
     }//main
 }
