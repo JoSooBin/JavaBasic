@@ -20,37 +20,37 @@ public class EX01 {
             504*/
         Student Kim = new Student();
 
-        Kim.number = 201350050;
+        Kim.stdno = 201350050;
         Kim.name = "김태희";
         Kim.addr = "경기도고양시";
         Kim.birth = "1985.3.22";
-        Kim.majorname = "컴퓨터";
-        Kim.professor = 504;
+        Kim.dept = "컴퓨터";
+        Kim.prof = "504";
         //출력
-        System.out.println(Kim.number);
+        System.out.println(Kim.stdno);
         System.out.println(Kim.name);
         System.out.println(Kim.addr);
         System.out.println(Kim.birth);
-        System.out.println(Kim.majorname);
-        System.out.println(Kim.professor);
+        System.out.println(Kim.dept);
+        System.out.println(Kim.prof);
 
         System.out.println("=================");
         //학과 클래스
             /*컴퓨터공학
               123-4567-8901
               E동 2층
-               504*/
+              504*/
         Majorname comptuer  = new Majorname();
 
-        comptuer.professor = 504;
-        comptuer.majorname = "컴퓨터공학";
-        comptuer.callnum = "123-4567-8901";
-        comptuer.addr = "E동 2층";
+        comptuer.chief = "504";
+        comptuer.dept = "컴퓨터공학";
+        comptuer.phone = "123-4567-8901";
+        comptuer.office = "E동 2층";
         //출력
-        System.out.println(comptuer.professor);
-        System.out.println(comptuer.majorname);
-        System.out.println(comptuer.callnum);
-        System.out.println(comptuer.addr);
+        System.out.println(comptuer.chief);
+        System.out.println(comptuer.dept);
+        System.out.println(comptuer.phone);
+        System.out.println(comptuer.office);
 
         System.out.println("=================");
         //과목 클래스
@@ -60,15 +60,30 @@ public class EX01 {
             301*/
         Subject programming = new Subject();
 
-        programming.subjnum = 0205;
+        programming.sbjno = "0205";
         programming.subjname = "프로그래밍";
-        programming.outline = "자바 프로그래밍";
-        programming.professor = 301;
+        programming.subjdesc = "자바 프로그래밍";
+        programming.prof = "301";
         //출력
-        System.out.println(programming.subjnum);
+        System.out.println(programming.sbjno);
         System.out.println(programming.subjname);
-        System.out.println(programming.outline);
-        System.out.println(programming.professor);
+        System.out.println(programming.subjdesc);
+        System.out.println(programming.prof);
+
+        System.out.println("=================");
+        //교수 클래스
+            /*301
+            이순신
+            프로그래밍*/
+        Professor prof = new Professor();
+
+        prof.no = "301";
+        prof.name = "이순신";
+        prof.mjfiled = "프로그래밍";
+        //출력
+        System.out.println(prof.no);
+        System.out.println(prof.name);
+        System.out.println(prof.mjfiled);
 
     }//main
 }

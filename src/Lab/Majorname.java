@@ -5,7 +5,6 @@ public class Majorname {
     전화번호
     사무실 위치
     학과장*/
-    String majorname,callnum, addr;
-    int professor;
+    String dept,phone,office,chief;
 
 }
