@@ -6,7 +6,12 @@ package JSB;
 //한 클래스에 같은 이름의 메서드가 2개 이상 존재 할 수 있음
 //이때 메서드의 서명만 다르게 작성한다면 정의 가능
 public class Overloading {
-
+    public static void main(String[] args) {
+        NonOverloading nol = new NonOverloading();
+        System.out.println( nol.addInt(10,10));
+        System.out.println( nol.addInt3(10,10, 20));
+        System.out.println( nol.addDouble(10.0,20.0));
+    }
 }
 
 class NonOverloading {
@@ -23,4 +28,8 @@ class NonOverloading {
     public int addInt3(int a, int b,int c){
         return a + b + c;
     }
+    //메서드 오버로딩이 구현되지 않은경우
+    //생성한 메서드마다 이름을 제각각으로 정해야하므로
+    //개발자가 일일히 기억해서 사용해야하는 불편 초래
+
 }
