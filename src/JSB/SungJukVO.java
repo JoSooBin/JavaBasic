@@ -22,13 +22,22 @@ public class SungJukVO { //처리의 대상이 되는 데이터들만 넣기
 
     }
 
-    public SungJukVO(int kor, int mat, int eng, int sum, double mean, char grd, String fnt, String result) {
+    public SungJukVO(String name, int kor, int mat, int eng, int sum, double mean, char grd) {
+        this.name = name;
         this.kor = kor;
         this.mat = mat;
         this.eng = eng;
         this.sum = sum;
         this.mean = mean;
         this.grd = grd;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getKor() {
@@ -78,5 +87,4 @@ public class SungJukVO { //처리의 대상이 되는 데이터들만 넣기
     public void setGrd(char grd) {
         this.grd = grd;
     }
-
 }
