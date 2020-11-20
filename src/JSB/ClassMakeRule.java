@@ -38,10 +38,12 @@ class ComputeTax {
     private int salary;
     private int isMarried; //0이면 예. 1이면 아니오.
 
+    //생성자
     public ComputeTax(){
 
     }
 
+    //setter/getter
     public ComputeTax(int salary, int isMarried) {
         this.salary = salary;
         this.isMarried = isMarried;
@@ -65,6 +67,7 @@ class ComputeTax {
 
     //service
     //세금계산
+    //setter/getter때문에 생성
     public double manageTax(){
         double tax = 0 ;
         if(isMarried == 0){ //기혼
