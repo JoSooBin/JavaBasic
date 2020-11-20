@@ -35,8 +35,8 @@ public class ClassMakeRule {
 
 //VO
 class ComputeTax {
-    private static int salary;
-    private static int isMarried; //0이면 예. 1이면 아니오.
+    private int salary;
+    private int isMarried; //0이면 예. 1이면 아니오.
 
     public ComputeTax(){
 
@@ -65,7 +65,7 @@ class ComputeTax {
 
     //service
     //세금계산
-    public static double manageTax(){
+    public double manageTax(){
         double tax = 0 ;
         if(isMarried == 0){ //기혼
             if(salary < 60000){
