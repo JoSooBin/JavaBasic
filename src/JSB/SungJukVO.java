@@ -1,14 +1,22 @@
 package JSB;
-
-public class SungJukVO {
+/**
+ *파일명 : SungJukV5
+ * 작성일 : 2020.11.20
+ *
+ * 프로그램 설명: 성적 처리 프로그램V5
+ * 이름, 국어, 영어, 수학, 총점, 평균, 학점에 관한
+ * 변수를 정의한 VO클래스
+ */
+public class SungJukVO { //처리의 대상이 되는 데이터들만 넣기
+    private String name;
     private int kor;
     private int mat;
     private int eng;
     private int sum;
     private double mean;
     private char grd;
-    private String fnt;
-    private String result;
+    //private String fnt; //service부분에 넣는거 결과는 하다보면 나오니까.
+    //private String result; //service부분에 넣는거
 
     public SungJukVO() {
 
@@ -21,8 +29,6 @@ public class SungJukVO {
         this.sum = sum;
         this.mean = mean;
         this.grd = grd;
-        this.fnt = fnt;
-        this.result = result;
     }
 
     public int getKor() {
@@ -73,20 +79,4 @@ public class SungJukVO {
         this.grd = grd;
     }
 
-    public String getFnt() {
-        return fnt;
-    }
-
-    public void setFnt(String fnt) {
-        this.fnt = fnt;
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-
-    }
 }
