@@ -152,6 +152,19 @@ class FinalSungJuk extends MidSungJuk {
         this.art = art;
         this.sci = sci;
     }
+
+    @Override
+    protected void readSungJuk() {
+        //부모클래스에 정의된 멤버변수 초기화 코드를 super라는 이름으로 치환해서 호출 할 수 있음
+        //super.메서드이름()
+        super.readSungJuk();
+
+        Scanner sc = new Scanner(System.in); //얘는 상속 못받아와서 또 써줘야함
+        System.out.print("미술점수를 입력하세요 : ");
+        art = sc.nextInt();
+        System.out.print("과학점수를 입력하세요 : ");
+        sci = sc.nextInt();
+    }
 }
 /*//성적처리
 class ComputeSungjuk extends FinalSungJuk {
