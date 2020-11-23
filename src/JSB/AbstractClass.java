@@ -9,13 +9,22 @@ package JSB;
 //추상메서드나 추상클래스는 abstract라는 키워드 사용
 public class AbstractClass {
     public static void main(String[] args) {
-        Animal2 a1 = new Animal2() ; //추상메서드 사용하므로 에러발생
-    }
+        //Animal2 a1 = new Animal2() ; //추상메서드 사용하므로 에러발생
 
+        Cat2 c2 = new Cat2();
+        System.out.println(c2.cry());
+    }
 }
 
 abstract class Animal2 {
     protected int weight;
 
     abstract String cry();//추상메서드
+}
+
+class Cat2 extends Animal2 {
+    @Override
+    String cry() {
+        return "야옹야옹";
+    }
 }
