@@ -19,9 +19,14 @@ public class SungJukV6Main {
     public static void main(String[] args) {
         MidSungJuk msj = new MidSungJuk();
 
-        msj.readSungJuk();
-        msj.computeSungJuk();
-        msj.printSungJuk();
+        //msj.readSungJuk();
+        //msj.computeSungJuk();
+        //msj.printSungJuk();
+
+        FinalSungJuk fsj = new FinalSungJuk();
+        fsj.readSungJuk();
+        fsj.computeSungJuk();
+        fsj.printSungJuk();
     }
 }
 
@@ -103,7 +108,6 @@ class MidSungJuk {
     public void setGrd(char grd) {
         this.grd = grd;
     }
-
     protected void readSungJuk() {
         Scanner sc = new Scanner(System.in);
 
@@ -147,8 +151,9 @@ class FinalSungJuk extends MidSungJuk {
         //this.kor = kor;
         //this.eng = eng;
         //this.mat = mat; //위 네줄을 아래 super 한줄로 처리할 수 있음
-        super(name, kor, eng, mat); //부모클래스에 정의된 멤버변수 초기화 코드를 super라는 이름으로 치환해서 호출 할 수 있음
-
+        super(name, kor, eng, mat);
+        //부모클래스에 정의된 멤버변수 초기화 코드를 super라는 이름으로 치환해서 호출 할 수 있음
+        //super(생성자 매개변수 목록)
         this.art = art;
         this.sci = sci;
     }
@@ -164,6 +169,27 @@ class FinalSungJuk extends MidSungJuk {
         art = sc.nextInt();
         System.out.print("과학점수를 입력하세요 : ");
         sci = sc.nextInt();
+    }
+
+    @Override
+    protected void computeSungJuk() {
+        //부모클래스에 정의된 총점 변수를 super라는 이름으로 치환해서 호출 할 수 있음
+        //super.computeSungJuk();
+        //sum = super.sum + art + sci; //멤버변수 호출할 때 super.멤버변수명 씀
+        sum = mat + kor + eng + art + sci;
+        mean = (double)sum/5;
+        //삼항연산자
+        grd = (mean >= 90) ? '수':
+              (mean >= 80) ? '우':
+              (mean >= 70) ? '미':
+              (mean >= 60) ? '양': '가';
+    }
+
+    @Override
+    protected void printSungJuk() {
+        String fnt = "이름 : %s\n국어 : %d\n영어 : %d\n수학 : %d\n미술 : %d\n과학 : %d\n총점 : %d\n평균 : %.2f\n학점 : %c\n";
+        String result = String.format(fnt,name,kor,eng,mat,art,sci,sum,mean,grd);
+        System.out.println(result);
     }
 }
 /*//성적처리
