@@ -1,4 +1,7 @@
 package JSB;
+
+import java.util.Scanner;
+
 /*
 * 파일명 : SungJukV6Main
 * 작성일 : 2020.11.23
@@ -14,34 +17,144 @@ package JSB;
 * */
 public class SungJukV6Main {
     public static void main(String[] args) {
-        PrintSungjuk sj = new PrintSungjuk();
-        System.out.println(sj.kor);
-        System.out.println(sj.mat);
-        System.out.println(sj.eng);
-        System.out.println(sj.art);
-        System.out.println(sj.sci);
-        System.out.println(sj.sum);
-        System.out.println(sj.grd);
+        MidSungJuk msj = new MidSungJuk();
+
+        msj.readSungJuk();
+        msj.computeSungJuk();
+        msj.printSungJuk();
     }
 }
 
 //중간고사
 class MidSungJuk {
     //변수선언
-    String name = "조수빈";   //한글자:char =''
-    int kor = 99;
-    int eng = 98;
-    int mat = 99;
+    protected String name ;   //한글자:char =''
+    protected int kor;
+    protected int eng;
+    protected int mat;
+    protected int sum ;
+    protected double mean ;
+    protected char grd;
+
+    public MidSungJuk() { }
+
+    public MidSungJuk(String name, int kor, int eng, int mat) { //매개변수를 4개만 넣음. 당장 안쓰니까
+        this.name = name;
+        this.kor = kor;
+        this.eng = eng;
+        this.mat = mat;
+//        sum = 0;
+//        mean =0.0;
+//        grd = '가'; // 넣어도되고 안넣어도됨
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getKor() {
+        return kor;
+    }
+
+    public void setKor(int kor) {
+        this.kor = kor;
+    }
+
+    public int getEng() {
+        return eng;
+    }
+
+    public void setEng(int eng) {
+        this.eng = eng;
+    }
+
+    public int getMat() {
+        return mat;
+    }
+
+    public void setMat(int mat) {
+        this.mat = mat;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
+    public double getMean() {
+        return mean;
+    }
+
+    public void setMean(double mean) {
+        this.mean = mean;
+    }
+
+    public char getGrd() {
+        return grd;
+    }
+
+    public void setGrd(char grd) {
+        this.grd = grd;
+    }
+
+    protected void readSungJuk() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("이름을 입력하세요 : ");
+        name = sc.nextLine();
+        System.out.print("국어점수를 입력하세요 : ");
+        kor = sc.nextInt(); //문자열을 int숫자로 변환
+        System.out.print("영어점수를 입력하세요 : ");
+        eng = sc.nextInt();
+        System.out.print("수학점수를 입력하세요 : ");
+        mat = sc.nextInt();
+    }
+    protected void computeSungJuk() {
+        sum = mat + kor + eng;
+        mean = (double)sum/3;
+        //삼항연산자
+        grd = (mean >= 90) ? '수':
+              (mean >= 80) ? '우':
+              (mean >= 70) ? '미':
+              (mean >= 60) ? '양': '가';
+    }
+    protected void printSungJuk(){
+        String fnt = "이름 : %s\n국어 : %d\n영어 : %d\n수학 : %d\n총점 : %d\n평균 : %.2f\n학점 : %c\n";
+        String result = String.format(fnt,name,kor,eng,mat,sum,mean,grd);
+
+        System.out.println(result);
+    }
 }
+
 //기말고사
 class FinalSungJuk extends MidSungJuk {
-    int art = 99;
-    int sci = 98;
+    protected int art;
+    protected int sci;
+
+    //생성자
+    public FinalSungJuk() { }
+
+    //매개변수생성자 (부모꺼 포함)
+    public FinalSungJuk(String name, int kor, int eng, int mat, int art, int sci) {
+        //this.name = name;
+        //this.kor = kor;
+        //this.eng = eng;
+        //this.mat = mat; //위 네줄을 아래 super 한줄로 처리할 수 있음
+        super(name, kor, eng, mat); //부모클래스에 정의된 멤버변수 초기화 코드를 super라는 이름으로 치환해서 호출 할 수 있음
+
+        this.art = art;
+        this.sci = sci;
+    }
 }
-//성적처리
+/*//성적처리
 class ComputeSungjuk extends FinalSungJuk {
-    int sum = 0;
-    double mean = 0.0;
 
     @Override
     protected int getSum() { return sum = mat + kor + eng; }
@@ -49,14 +162,9 @@ class ComputeSungjuk extends FinalSungJuk {
     @Override
     protected double getMean() { return mean = (double)sum/3; }
 
-
-
-    
 }
 //결과출력
 class PrintSungjuk extends ComputeSungjuk {
-
-    char grd = '가';
 
     @Override
     protected char getGrd() { return grd = (mean >= 90) ? '수':
@@ -64,4 +172,5 @@ class PrintSungjuk extends ComputeSungjuk {
                                             (mean >= 70) ? '미':
                                             (mean >= 60) ? '양': '가'; }
 
-}
+}*/
+
