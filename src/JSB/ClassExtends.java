@@ -12,7 +12,14 @@ package JSB;
 //3.소프트웨어 생산성 향상
 public class ClassExtends {
     public static void main(String[] args) {
+        StudntWorker sw = new StudntWorker();
+        Researcher rs = new Researcher();
 
+        System.out.println(sw.working());
+        System.out.println(sw.eat());
+
+        System.out.println(rs.sleep());
+        System.out.println(rs.research());
     }
     
 }
