@@ -21,6 +21,9 @@ class Anlmal3 {
 }
 
 interface Animal3Action{
+    //public static String color = "brown";
+    String color = "brown";
+
     //public abstract String cry();
     //abstract String cry();
     String cry(); //셋 다 같은 말(생략의 유무 차이)
@@ -29,5 +32,12 @@ class Cat3 extends Anlmal3 implements Animal3Action{
     @Override
     public String cry() {
         return "야옹~야옹~";
+    }
+}
+
+class Murloc extends Anlmal3 implements Animal3Action{
+    @Override
+    public String cry() {
+        return "와라라라라라라ㅏㄹ";
     }
 }

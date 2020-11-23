@@ -3,36 +3,38 @@ package JSB;
 import java.util.Scanner;
 
 /*
-* 파일명 : SungJukV6Main
-* 작성일 : 2020.11.23
-*
-* 프로그램 설명: 성적처리프로그램 v6
-* 중간고사와 기말고사 성적처리프로그램을 만들려고 함
-* SungJukV1을 토대로 중간고사성적과 기말고사 성적 클래스를 상속을 이용해서 작성하세요
-* 
-* 중간고사 MidSungJuk : 국어, 영어, 수학
-* 기말고사 FinalSungJuk : 국어, 영어, 수학,미술art,과학sci
-* 성적처리 : ComputeSungjuk
-* 결과출력 : PrintSungjuk
-* */
-public class SungJukV6Main {
+ * 파일명 : SungJukV6Main
+ * 작성일 : 2020.11.23
+ *
+ * 프로그램 설명: 성적처리프로그램 v7
+ * 중간고사와 기말고사 성적처리프로그램을 만들려고 함
+ * SungJukV6Main을 토대로 중간고사성적과 기말고사 성적 클래스를 인터페이스를 이용해서 작성하세요
+ *
+ * 부모클래스 : SungJukV7
+ * 인터페이스 : ISungJukV6
+ * 중간고사 MidSungJuk2 : 국어, 영어, 수학
+ * 기말고사 FinalSungJuk2 : 국어, 영어, 수학,미술art,과학sci
+ * 성적입력 : readSungJuk
+ * 성적처리 : ComputeSungjuk
+ * 결과출력 : PrintSungjuk
+ * */
+public class SungJukV7Main {
     public static void main(String[] args) {
-        MidSungJuk msj = new MidSungJuk();
+        //MidSungJuk2 msj2 = new MidSungJuk2();
+        //msj2.readSungJuk();
+        //msj2.computeSungJuk();
+        //msj2.printSungJuk();
 
-        //msj.readSungJuk();
-        //msj.computeSungJuk();
-        //msj.printSungJuk();
-
-        FinalSungJuk fsj = new FinalSungJuk();
-        fsj.readSungJuk();
-        fsj.computeSungJuk();
-        fsj.printSungJuk();
+        FinalSungJuk2 fsj2 = new FinalSungJuk2();
+        fsj2.readSungJuk();
+        fsj2.computeSungJuk();
+        fsj2.printSungJuk();
     }
+    
 }
 
-//중간고사
-class MidSungJuk {
-    //변수선언
+//추상클래스(변수들에 대한 내용)
+abstract class SungJukV7{
     protected String name ;   //한글자:char =''
     protected int kor;
     protected int eng;
@@ -41,16 +43,14 @@ class MidSungJuk {
     protected double mean ;
     protected char grd;
 
-    public MidSungJuk() { }
+    //생성자
+    public SungJukV7() { }
 
-    public MidSungJuk(String name, int kor, int eng, int mat) { //매개변수를 4개만 넣음. 당장 안쓰니까
+    public SungJukV7(String name, int kor, int eng, int mat) {
         this.name = name;
         this.kor = kor;
         this.eng = eng;
         this.mat = mat;
-//        sum = 0;
-//        mean =0.0;
-//        grd = '가'; // 넣어도되고 안넣어도됨
     }
 
     public String getName() {
@@ -108,7 +108,22 @@ class MidSungJuk {
     public void setGrd(char grd) {
         this.grd = grd;
     }
-    protected void readSungJuk() {
+}
+
+//인터페이스 작성(기능에 대한 가이드)
+interface ISunJukV7{ //하위와 같은 메소드들이 있다.
+    void readSungJuk();
+    void computeSungJuk();
+    void printSungJuk();
+}
+
+//인터페이스 구현 (인터페이스에 정의된 규칙에따라 정의)
+
+//중간고사
+class MidSungJuk2 extends SungJukV7 implements ISunJukV7 {
+
+    @Override
+    public void readSungJuk() {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("이름을 입력하세요 : ");
@@ -120,51 +135,60 @@ class MidSungJuk {
         System.out.print("수학점수를 입력하세요 : ");
         mat = sc.nextInt();
     }
-    protected void computeSungJuk() {
+
+    @Override
+    public void computeSungJuk() {
         sum = mat + kor + eng;
         mean = (double)sum/3;
         //삼항연산자
-        grd = (mean >= 90) ? '수':
+        grd = (mean >= 90) ? '수': 
               (mean >= 80) ? '우':
               (mean >= 70) ? '미':
               (mean >= 60) ? '양': '가';
     }
-    protected void printSungJuk(){
+
+    @Override
+    public void printSungJuk() {
         String fnt = "이름 : %s\n국어 : %d\n영어 : %d\n수학 : %d\n총점 : %d\n평균 : %.2f\n학점 : %c\n";
         String result = String.format(fnt,name,kor,eng,mat,sum,mean,grd);
 
         System.out.println(result);
     }
 }
-
 //기말고사
-class FinalSungJuk extends MidSungJuk {
+class FinalSungJuk2 extends SungJukV7 implements ISunJukV7 {
+
+    //변수 2개 추가(미술, 과학)
     protected int art;
     protected int sci;
 
     //생성자
-    public FinalSungJuk() { }
+    public FinalSungJuk2() {
+    }
 
-    //매개변수생성자 (부모꺼 포함)
-    public FinalSungJuk(String name, int kor, int eng, int mat, int art, int sci) {
-        //this.name = name;
-        //this.kor = kor;
-        //this.eng = eng;
-        //this.mat = mat; //위 네줄을 아래 super 한줄로 처리할 수 있음
+    public FinalSungJuk2(int art, int sci) {
+        this.art = art;
+        this.sci = sci;
+    }
+
+    public FinalSungJuk2(String name, int kor, int eng, int mat, int art, int sci) {
         super(name, kor, eng, mat);
-        //부모클래스에 정의된 멤버변수 초기화 코드를 super라는 이름으로 치환해서 호출 할 수 있음
-        //super(생성자 매개변수 목록)
         this.art = art;
         this.sci = sci;
     }
 
     @Override
-    protected void readSungJuk() {
-        //부모클래스에 정의된 멤버변수 초기화 코드를 super라는 이름으로 치환해서 호출 할 수 있음
-        //super.메서드이름()
-        super.readSungJuk();
+    public void readSungJuk() {
+        Scanner sc = new Scanner(System.in);
 
-        Scanner sc = new Scanner(System.in); //얘는 상속 못받아와서 또 써줘야함
+        System.out.print("이름을 입력하세요 : ");
+        name = sc.nextLine();
+        System.out.print("국어점수를 입력하세요 : ");
+        kor = sc.nextInt();
+        System.out.print("영어점수를 입력하세요 : ");
+        eng = sc.nextInt();
+        System.out.print("수학점수를 입력하세요 : ");
+        mat = sc.nextInt();
         System.out.print("미술점수를 입력하세요 : ");
         art = sc.nextInt();
         System.out.print("과학점수를 입력하세요 : ");
@@ -172,10 +196,7 @@ class FinalSungJuk extends MidSungJuk {
     }
 
     @Override
-    protected void computeSungJuk() {
-        //부모클래스에 정의된 총점 변수를 super라는 이름으로 치환해서 호출 할 수 있음
-        //super.computeSungJuk();
-        //sum = super.sum + art + sci; //멤버변수 호출할 때 super.멤버변수명 씀
+    public void computeSungJuk() {
         sum = mat + kor + eng + art + sci;
         mean = (double)sum/5;
         //삼항연산자
@@ -186,10 +207,9 @@ class FinalSungJuk extends MidSungJuk {
     }
 
     @Override
-    protected void printSungJuk() {
+    public void printSungJuk() {
         String fnt = "이름 : %s\n국어 : %d\n영어 : %d\n수학 : %d\n미술 : %d\n과학 : %d\n총점 : %d\n평균 : %.2f\n학점 : %c\n";
         String result = String.format(fnt,name,kor,eng,mat,art,sci,sum,mean,grd);
         System.out.println(result);
     }
 }
-
