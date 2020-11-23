@@ -12,6 +12,9 @@ public class Overriding {
 
         Dog dog = new Dog();
         System.out.println(dog.cry());
+
+        Animal a = new Animal();//부모 클래스를 객체화
+        System.out.println(a.cry());
     }
 }
 
