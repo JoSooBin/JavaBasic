@@ -3,7 +3,7 @@ package JSB;
 //인터페이스
 //추상메서드와 상수만으로 구성된 특수한 클래스
 //어떤 클래스를 만들 때 추상메서드를 통해 기본이 되는 틀을 제공하여
-// 규칙에 맞춰 코드를 잘 수 있게 해 줌
+// 규칙에 맞춰 코드를 잘 수 있게 해 줌 -> 접근제한자는 public으로 고정
 //클래스와는 달리 다중상속을 지원함.
 
 //인터페이스 작성시 interface를 사용
@@ -21,7 +21,9 @@ class Anlmal3 {
 }
 
 interface Animal3Action{
-    abstract String cry();
+    //public abstract String cry();
+    //abstract String cry();
+    String cry(); //셋 다 같은 말(생략의 유무 차이)
 }
 class Cat3 extends Anlmal3 implements Animal3Action{
     @Override

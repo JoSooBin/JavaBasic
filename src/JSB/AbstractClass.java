@@ -19,12 +19,12 @@ public class AbstractClass {
 abstract class Animal2 {
     protected int weight;
 
-    abstract String cry();//추상메서드
+    protected abstract String cry();//추상메서드
 }
 
 class Cat2 extends Animal2 {
     @Override
-    String cry() {
+    protected  String cry() {
         return "야옹야옹";
     }
 }
