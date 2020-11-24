@@ -54,28 +54,16 @@ public class Strings2 {
         //123456-1234567, 987654-4567890
         //1, 2 : 2000년 이전 남여 구분
         //3, 4 : 2000년 이후 남여 구분
-        //String str1 = "123456-1234567";
-        String str2 = "987654-4567890";
 
+        String jumin = "123456-1234567";
+        String gender = jumin.substring(7,8);
 
-        Scanner sc = new Scanner(System.in);
-        System.out.print("주민번호를 입력하세요 : ");
-        String str1 = sc.nextLine();
-        String word1 = str1.substring(7,8);
-        System.out.println(word1);
-        if(word1.equals("1")){
-            System.out.println("2000년 이전 출생 남자");
+        switch (gender) {
+            case  "1" : System.out.println("2000년 이전 출생 남자"); break;
+            case  "2" : System.out.println("2000년 이전 출생 여자"); break;
+            case  "3" : System.out.println("2000년 이후 출생 남자"); break;
+            case  "4" : System.out.println("2000년 이후 출생 여자"); break;
         }
-        if(word1.equals("2")){
-            System.out.println("2000년 이전 출생 여자");
-        }
-        if(word1.equals("3")){
-            System.out.println("2000년 이후 출생 남자");
-        }
-        if(word1.equals("4")){
-            System.out.println("2000년 이후 출생 여자");
-        }
-
 
     }
 }
