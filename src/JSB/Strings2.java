@@ -67,5 +67,8 @@ public class Strings2 {
         }
         System.out.println(result2);
 
+        //지정한 위치의 문자 추출: charAt
+        str = "123456-1234567";
+        System.out.println(str.charAt(7));
     }
 }
