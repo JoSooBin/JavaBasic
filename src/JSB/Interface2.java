@@ -25,9 +25,17 @@ package JSB;
 //만일, 재정의하고싶지 않거나, 재정의할 필요가 없는데도 재정의해야하는 불편함이 존재 할 수 있음
 //=>이럴 경우 추상클래스를 통해 임의로 구현한 다음 이 추상클래스를 상속해서 클래스를 만드는 것이 편리함
 //이때 만든 클래스를 기본클래스라 함
+
+//github.com/javaee/servlet-spec
+//src/main/java/javax/servlet -> Servlet.java
+//src/main/java/javax/servlet -> GenericServlet.java
+//src/main/java/javax/servlet/http -> HttpServlet.java
 public class Interface2 {
     public static void main(String[] args) {
-
+    Cat4 c4 = new Cat4();
+    Dog4 d4 = new Dog4();
+        System.out.println(c4.cry());
+        System.out.println(d4.cry());
     }
 }
 class Animal4{
