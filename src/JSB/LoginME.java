@@ -14,19 +14,24 @@ public class LoginME {
         String mid = "abc123";
         String mpassword = "987zxy";
 
+        while(true) { //로그인 될때까지 계속 돌음
+
         Scanner sc = new Scanner(System.in);
         System.out.print("아이디를 입력하세요 : ");
         String id = sc.nextLine();
         System.out.print("비밀번호를 입력하세요 : ");
         String password = sc.nextLine();
 
-        if (! mid.equals(id) && ! mpassword.equals(password)) {
+        if (!mid.equals(id) && !mpassword.equals(password)) {
             System.out.println("가입되지 않은 아이디!");
         }
-        else if(mid.equals(id) && ! mpassword.equals(password)) {
+        else if (mid.equals(id) && !mpassword.equals(password)) {
             System.out.println("비밀번호가 틀렸음!");
-        } else if (mid.equals(id) && mpassword.equals(password)) {
+        }
+        else if (mid.equals(id) && mpassword.equals(password)) {
             System.out.println("로그인 성공!");
+            break;
+        }
         }
     }
 }
