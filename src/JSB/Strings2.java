@@ -130,12 +130,14 @@ public class Strings2 {
         //두번째는 영문자, 숫자, 특수기호()등이 포함
         //아이디 길이는 6자 ~ 18자
         //abc132!XYZ, 132jkl
-        String pattern3 = ". {3,18}-[^a-zA-Z]{1}-[a-z0-9]{2}"; //모르겠다아아아아
+        String pattern3 = "^[a-zA-Z]{1}[a-zA-Z0-9!?@$]{5,17}"; //{1} 생략가능
 
         uid = "abc132!XYZ";
-        System.out.println(uid.matches(pattern3));
-        uid = "132jkl";
-        System.out.println(uid.matches(pattern3));
+        System.out.println(uid.matches(pattern2));//true
+        uid = "123456789013245"; //범위 초과
+        System.out.println(uid.matches(pattern3)); //false
+        uid = "132jkl"; //시작이 숫자
+        System.out.println(uid.matches(pattern3)); //false
 
     }
 }
