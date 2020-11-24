@@ -20,12 +20,12 @@ public class LoginME {
         System.out.print("비밀번호를 입력하세요 : ");
         String password = sc.nextLine();
 
-        if (mid.equals(id) != true) {
+        if (! mid.equals(id) && ! mpassword.equals(password)) {
             System.out.println("가입되지 않은 아이디!");
         }
-        if(mid.equals(id) == true && mpassword.equals(password) != true) {
+        else if(mid.equals(id) && ! mpassword.equals(password)) {
             System.out.println("비밀번호가 틀렸음!");
-        } else if (mid.equals(id) == true && mpassword.equals(password) == true) {
+        } else if (mid.equals(id) && mpassword.equals(password)) {
             System.out.println("로그인 성공!");
         }
     }
