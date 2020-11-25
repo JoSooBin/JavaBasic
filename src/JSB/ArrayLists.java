@@ -118,20 +118,25 @@ public class ArrayLists {
         }
         System.out.println("-------------------");
 
-        /*for(String g : games2) {
-            if(g.equals("디아블로")){
+        for(GameInfo g : games2) {
+            if(g.name.equals("디아블로")){
                 System.out.println("데이터 찾음");
                 break;
             }
-        }*/
-        System.out.println("-------------------");
-
-        if(games2.name.contains("디아블로")){
-            System.out.println("데이터 찾음!");
         }
         System.out.println("-------------------");
 
-        System.out.println(games2.indexOf("디아블로")+1);
+        for(GameInfo g : games2) {
+            if (g.name.contains("디아블로")) {
+                System.out.println("데이터 찾음!");
+            }
+        }
+        System.out.println("-------------------");
+
+        for(GameInfo g : games2) {
+            if(g.name.indexOf("디아블로")>=0)
+             System.out.println("데이터 찾음!");
+        }
         System.out.println("-------------------");
     }
 }
