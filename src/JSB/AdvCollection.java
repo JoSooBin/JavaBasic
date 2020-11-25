@@ -100,5 +100,24 @@ public class AdvCollection {
             System.out.println(val);
         }
         System.out.println("-------------------");
+
+        Map<Integer, GameInfo> games = new HashMap<>();
+        games.put(123, new GameInfo("스타크래프트",35000));
+        games.put(234, new GameInfo("워크래프트",25000));
+        games.put(345, new GameInfo("디아블로",45000));
+
+
+        //key가 234인 게임의 정보 출력
+        //GameInfo의 모든 게임정보 출력
+        Collection<GameInfo> bb = games.values();
+        for(GameInfo vv : bb);
+        for(int i = 0; i<games.size(); i++){
+            int vv = 0;
+            if(vv == 234) {
+                System.out.println(games.get(i).name + games.get(i).price);
+            }
+        }
+        System.out.println("-------------------");
+
     }
 }
