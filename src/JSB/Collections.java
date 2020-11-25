@@ -8,7 +8,7 @@ import java.util.ArrayList;
 //매개변수의유형을 Object로 선언하는경우
 //경우에 따라 원래의유형으로 변환해야하는 경우
 //번거로움이 존재하고 오류가 발생할 수 있는 가능성 존재
-public class Collection {
+public class Collections {
     public static void main(String[] args) {
         Object[] zoo = new Object[10];
 
