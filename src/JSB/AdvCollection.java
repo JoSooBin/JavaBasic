@@ -108,14 +108,15 @@ public class AdvCollection {
 
 
         //key가 234인 게임의 정보 출력
+        System.out.println( games.get(234).name );
+        System.out.println( games.get(234).price );
         //GameInfo의 모든 게임정보 출력
-        Collection<GameInfo> bb = games.values();
-        for(GameInfo vv : bb);
-        for(int i = 0; i<games.size(); i++){
-            int vv = 0;
-            if(vv == 234) {
-                System.out.println(games.get(i).name + games.get(i).price);
-            }
+        Set<Integer> keys2 = games.keySet();
+        for(Integer key : keys2){
+            System.out.println( );
+            System.out.println("키가"+key+"인 게임정보");
+            System.out.println( games.get(key).name );
+            System.out.println( games.get(key).price );
         }
         System.out.println("-------------------");
 
