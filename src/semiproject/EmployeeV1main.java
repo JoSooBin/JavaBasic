@@ -1,5 +1,7 @@
 package semiproject;
-
+/*
+* 인사정보프로그램 진입점
+* */
 import java.util.Scanner;
 
 public class EmployeeV1main {

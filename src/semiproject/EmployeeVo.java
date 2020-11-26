@@ -5,11 +5,12 @@ package semiproject;
 이름2 lname
 이메일 email
 전화번호 phone
-날짜 hdate
+입사일 hdate
 아이디 jobid
 급여 sal
 매니저 아이디 mgrid
 부서번호 deptid
+* 수당 comm
 * */
 public class EmployeeVo {
     private int empno; //사번
@@ -23,6 +24,7 @@ public class EmployeeVo {
     private String phone; //전화번호
     private String hdate; //날짜
     private int sal;//급여
+    private double comm; //수당
 
 
 //생성자
@@ -32,7 +34,7 @@ public class EmployeeVo {
 //매개변수
 
 
-    public EmployeeVo(int empno, String fname, String email, String jobid, int mgrid, int deptid, String lname, String phone, String hdate, int sal) {
+    public EmployeeVo(int empno, String fname, String email, String jobid, int mgrid, int deptid, String lname, String phone, String hdate, int sal, double comm) {
         this.empno = empno;
         this.fname = fname;
         this.email = email;
@@ -43,9 +45,11 @@ public class EmployeeVo {
         this.phone = phone;
         this.hdate = hdate;
         this.sal = sal;
+        this.comm = comm;
     }
 
     //getter/setter
+
     public int getEmpno() {
         return empno;
     }
@@ -62,20 +66,44 @@ public class EmployeeVo {
         this.fname = fname;
     }
 
-    public String getLname() {
-        return lname;
-    }
-
-    public void setLname(String lname) {
-        this.lname = lname;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getJobid() {
+        return jobid;
+    }
+
+    public void setJobid(String jobid) {
+        this.jobid = jobid;
+    }
+
+    public int getMgrid() {
+        return mgrid;
+    }
+
+    public void setMgrid(int mgrid) {
+        this.mgrid = mgrid;
+    }
+
+    public int getDeptid() {
+        return deptid;
+    }
+
+    public void setDeptid(int deptid) {
+        this.deptid = deptid;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 
     public String getPhone() {
@@ -94,14 +122,6 @@ public class EmployeeVo {
         this.hdate = hdate;
     }
 
-    public String getJobid() {
-        return jobid;
-    }
-
-    public void setJobid(String jobid) {
-        this.jobid = jobid;
-    }
-
     public int getSal() {
         return sal;
     }
@@ -110,19 +130,11 @@ public class EmployeeVo {
         this.sal = sal;
     }
 
-    public int getMgrid() {
-        return mgrid;
+    public double getComm() {
+        return comm;
     }
 
-    public void setMgrid(int mgrid) {
-        this.mgrid = mgrid;
-    }
-
-    public int getDeptid() {
-        return deptid;
-    }
-
-    public void setDeptid(int deptid) {
-        this.deptid = deptid;
+    public void setComm(double comm) {
+        this.comm = comm;
     }
 }
