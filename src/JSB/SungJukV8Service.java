@@ -109,7 +109,7 @@ public class SungJukV8Service extends SungJukV8GenericService {
     }
 
     public void computeSungJuk(SungJukVO sj){
-        sj.setSum(sj.getKor() + sj.getEng() + sj.getMat() );
+        sj.setSum( sj.getKor() + sj.getEng() + sj.getMat() );
         sj.setMean( (double)sj.getSum()/3);
 
         switch ((int)sj.getMean()/10){
