@@ -62,6 +62,23 @@ public class AdvCollection {
         //sha(secure hash algorithm)
         //256 : 256bit 길이의 코드생성성(정렬은 고유 해쉬값에 의해 정렬)
 
+        //ex)로또 6/45 프로그램 생성
+        //1~45사이 임의의 숫자 6개를 만드는 코드 작성
+        //단 중복은 허용 안 함
+        Set<Integer> lotto = new HashSet<>();
+
+        int j=0;
+        while( j<6 ){
+            int i = (int)(Math.random()*45)+1;
+            lotto.add(i);
+            j++;
+        }
+        System.out.println(lotto);
+        /*while (lotto.hasNext()) {
+            System.out.println(i.next());
+        }*/
+        System.out.println("-------------------");
+
         //HashMap
         //키와 값으로 저장하는 컬렉션클래스
         //Map인터페이스를 구현한 컬렉션 클래스
