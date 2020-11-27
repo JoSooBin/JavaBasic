@@ -34,8 +34,8 @@ public class FileReaderWriter2 {
         prof = 301;
 
         //버퍼 기능을 지원하는 Writer 사용
+        fpath = "c:/Java/subject.dat";
         fw = new FileWriter(fpath);
-        fpath = "c:/Java/student.dat";
         BufferedWriter bw = new BufferedWriter(fw);
 
         fmt = "%s,%s,%s,%s";
