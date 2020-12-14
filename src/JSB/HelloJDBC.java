@@ -33,7 +33,7 @@ public class HelloJDBC {
        try {
             conn = DriverManager.getConnection(
                     url, "playground", "playground2020");
-            if(!conn.isClosed())
+            if(!conn.isClosed()) //isClosed() 닫혔냐?
                 System.out.println("데이터베이스 접속 성공");
        } catch (SQLException sqlex) {
            System.out.println("디비 접속주소가 틀리거나 아이디/비번을 확인하세요");
