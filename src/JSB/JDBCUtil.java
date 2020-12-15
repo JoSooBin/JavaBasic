@@ -1,9 +1,6 @@
 package JSB;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class JDBCUtil {
     //JDBC 드라이버 초기화 및 Connection 객체 생성
@@ -33,5 +30,13 @@ public class JDBCUtil {
         if(conn != null)
             try { conn.close(); } catch (SQLException se) { }
 
+    }
+
+    public static void destoryConn(Connection conn, PreparedStatement pstmt, ResultSet rs) {
+        if(conn != null)
+            try {
+                rs.close();
+            } catch (SQLException se) { }
+        destoryConn(conn, pstmt);
     }
 }
