@@ -12,6 +12,7 @@ package semiproject;
 부서번호 deptid
 * 수당 comm
 * */
+
 public class EmployeeVo {
     private int empno; //사번
     private String fname; //성
@@ -26,14 +27,7 @@ public class EmployeeVo {
     private int sal;//급여
     private double comm; //수당
 
-
-//생성자
-    public EmployeeVo() {
-    }
-
-//매개변수
-
-
+    //매개변수
     public EmployeeVo(int empno, String fname, String email, String jobid, int mgrid, int deptid, String lname, String phone, String hdate, int sal, double comm) {
         this.empno = empno;
         this.fname = fname;
@@ -47,6 +41,18 @@ public class EmployeeVo {
         this.sal = sal;
         this.comm = comm;
     }
+
+    public EmployeeVo(int empno, String lname, String email, String jobid, int mgrid, int deptid) {
+        this.empno = empno;
+        this.lname = lname;
+        this.email = email;
+        this.jobid = jobid;
+        this.mgrid = mgrid;
+        this.deptid = deptid;
+    }
+
+    //생성자
+    public EmployeeVo() { }
 
     //getter/setter
 

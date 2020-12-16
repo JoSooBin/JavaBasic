@@ -28,3 +28,10 @@ where sjno=1;
 
 -- 성적삭제
 delete from sungjuk where sjno =1;
+
+-- 사원추가
+select employee_id, last_name,email,job_id,manager_id,department_id
+from employess;
+
+-- 사원 상세조회
+
