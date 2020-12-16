@@ -33,10 +33,8 @@ public class JDBCUtil {
     }
 
     public static void destoryConn(Connection conn, PreparedStatement pstmt, ResultSet rs) {
-        if(conn != null)
-            try {
-                rs.close();
-            } catch (SQLException se) { }
+        if(rs != null)
+            try { rs.close(); } catch (SQLException se) { }
         destoryConn(conn, pstmt);
     }
 }

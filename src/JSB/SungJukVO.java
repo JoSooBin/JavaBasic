@@ -8,6 +8,7 @@ package JSB;
  * 변수를 정의한 VO클래스
  */
 public class SungJukVO { //처리의 대상이 되는 데이터들만 넣기
+    private int sjno;
     private String name;
     private int kor;
     private int mat;
@@ -15,14 +16,11 @@ public class SungJukVO { //처리의 대상이 되는 데이터들만 넣기
     private int sum;
     private double mean;
     private char grd;
-    //private String fnt; //service부분에 넣는거 결과는 하다보면 나오니까.
-    //private String result; //service부분에 넣는거
+    private String regdate;
 
-    public SungJukVO() {
-
-    }
-
-    public SungJukVO(String name, int kor, int mat, int eng, int sum, double mean, char grd) {
+    public SungJukVO(String name, int kor, int mat,
+                     int eng, int sum, double mean, char grd){
+        this.sjno = sjno;
         this.name = name;
         this.kor = kor;
         this.mat = mat;
@@ -30,11 +28,38 @@ public class SungJukVO { //처리의 대상이 되는 데이터들만 넣기
         this.sum = sum;
         this.mean = mean;
         this.grd = grd;
+        this.regdate = regdate;
     }
 
-    public String getName() {
-        return name;
+    public SungJukVO(int sjno, String name, int kor, int mat,
+                     int eng, int sum, double mean, char grd, String regdate) {
+        this.sjno = sjno;
+        this.name = name;
+        this.kor = kor;
+        this.mat = mat;
+        this.eng = eng;
+        this.sum = sum;
+        this.mean = mean;
+        this.grd = grd;
+        this.regdate = regdate;
     }
+
+
+    public String getRegdate() { return regdate; }
+
+    public void setRegdate(String regdate) {
+        this.regdate = regdate;
+    }
+
+    public int getSjno() {
+        return sjno;
+    }
+
+    public void setSjno(int sjno) {
+        this.sjno = sjno;
+    }
+
+    public String getName() { return name; }
 
     public void setName(String name) {
         this.name = name;
@@ -87,4 +112,6 @@ public class SungJukVO { //처리의 대상이 되는 데이터들만 넣기
     public void setGrd(char grd) {
         this.grd = grd;
     }
+
+
 }
