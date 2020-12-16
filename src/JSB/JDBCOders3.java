@@ -24,10 +24,10 @@ public class JDBCOders3 {
             rs = pstmt.executeQuery(); // 결과받기
 
             while (rs.next()){
-                String orderid = String.format(rs.getString(1));
-                String custid = String.format(rs.getString(2));
-                String bookid = String.format(rs.getString(3));
-                String saleprice = String.format(rs.getString(4));
+                String orderid = rs.getString(1);
+                String custid = rs.getString(2);
+                String bookid = rs.getString(3);
+                String saleprice = rs.getString(4);
                 String orderdate = rs.getString(5);
                 String result = String.format(fmt,orderid,custid,bookid,saleprice,orderdate);
                 sb.append(result);
