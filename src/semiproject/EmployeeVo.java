@@ -28,7 +28,8 @@ public class EmployeeVo {
     private double comm; //수당
 
     //매개변수
-    public EmployeeVo(int empno, String fname, String email, String jobid, int mgrid, int deptid, String lname, String phone, String hdate, int sal, double comm) {
+    public EmployeeVo(int empno, String fname, String lname, String email, String phone, String hdate,
+                      String jobid, int sal, double comm, int mgrid, int deptid) {
         this.empno = empno;
         this.fname = fname;
         this.email = email;
@@ -51,7 +52,6 @@ public class EmployeeVo {
         this.deptid = deptid;
     }
 
-    //생성자
     public EmployeeVo() { }
 
     //getter/setter

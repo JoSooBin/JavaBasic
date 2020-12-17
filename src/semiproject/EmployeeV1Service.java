@@ -45,7 +45,7 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
         int empno, sal, mgrid, deptid;
         double comm;*/
         EmployeeVo emp = new EmployeeVo(
-                0,"","","",0,0,"","","",0,0
+                0,"","","","","","",0,0.0,0,0
         );
 
         Scanner sc = new Scanner(System.in);
@@ -53,18 +53,26 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
         //모든 인사정보는 문자형으로 받되 필요에 따라 적절한 형변환을 해서 변수에 저장
         System.out.print("사번을 입력하세요 : ");
         emp.setEmpno(Integer.parseInt(sc.nextLine()));
-        System.out.print("성을 입력하세요 : ");
+        System.out.print("이름을 입력하세요 : ");
         emp.setFname(sc.nextLine());
+        System.out.print("성을 입력하세요 : ");
+        emp.setLname(sc.nextLine());
         System.out.print("이메일을 입력하세요 : ");
         emp.setEmail(sc.nextLine());
+        System.out.print("전화번호를 입력하세요 : ");
+        emp.setPhone(sc.nextLine());
+        System.out.print("입사일 입력하세요 : ");
+        emp.setHdate(sc.nextLine());
         System.out.print("직책을 입력하세요 : ");
         emp.setJobid(sc.nextLine());
+        System.out.print("급여를 입력하세요 : ");
+        emp.setSal(Integer.parseInt(sc.nextLine()));
         System.out.print("수당을 입력하세요 : ");
         emp.setComm(Double.parseDouble(sc.nextLine()) );
         System.out.print("상사번호를 입력하세요 : ");
-        emp.setMgrid(sc.nextInt());
+        emp.setMgrid(Integer.parseInt(sc.nextLine()));
         System.out.print("부서번호를 입력하세요 : ");
-        emp.setDeptid(sc.nextInt());
+        emp.setDeptid(Integer.parseInt(sc.nextLine()));
 
         //처리된 성적데이터를 동적배열에 저장
         emdata.add(emp);

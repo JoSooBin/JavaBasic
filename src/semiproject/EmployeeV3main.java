@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class EmployeeV3main {
     public static void main(String[] args) {
-        EmployeeV1Service ejsrv = new EmployeeV1Service();
+        EmployeeV3Service ejsrv = new EmployeeV3Service();
 
         Scanner sc = new Scanner(System.in);
         String menu = "";

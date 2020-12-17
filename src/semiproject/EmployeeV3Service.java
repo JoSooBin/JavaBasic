@@ -24,7 +24,39 @@ public class EmployeeV3Service  {
         System.out.print(sb);
     }
 
-    public void readEmployee() {
+    public void newEmployees() {
+        EmployeeVo emp = new EmployeeVo();
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("사번을 입력하세요 : ");
+        emp.setEmpno(Integer.parseInt(sc.nextLine()));
+        System.out.print("이름을 입력하세요 : ");
+        emp.setFname(sc.nextLine());
+        System.out.print("성을 입력하세요 : ");
+        emp.setLname(sc.nextLine());
+        System.out.print("이메일을 입력하세요 : ");
+        emp.setEmail(sc.nextLine());
+        System.out.print("전화번호를 입력하세요 : ");
+        emp.setPhone(sc.nextLine());
+        System.out.print("입사일 입력하세요 : ");
+        emp.setHdate(sc.nextLine());
+        System.out.print("직책을 입력하세요 : ");
+        emp.setJobid(sc.nextLine());
+        System.out.print("급여를 입력하세요 : ");
+        emp.setSal(Integer.parseInt(sc.nextLine()));
+        System.out.print("수당을 입력하세요 : ");
+        emp.setComm(Double.parseDouble(sc.nextLine()) );
+        System.out.print("상사번호를 입력하세요 : ");
+        emp.setMgrid(Integer.parseInt(sc.nextLine()));
+        System.out.print("부서번호를 입력하세요 : ");
+        emp.setDeptid(Integer.parseInt(sc.nextLine()));
+
+        String result = EmployeeV3DAO.insertEmp(emp);
+        System.out.println(result);
+    }
+
+    public void readEmployees() {
        StringBuilder sb = new StringBuilder();
         String fmt = "%10s %10s %10s %10s %10s %10s\n";
 
@@ -41,5 +73,21 @@ public class EmployeeV3Service  {
         System.out.println(sb.toString());
     }
 
+    public void readOneEmployees() {
+        String fmt = "%10s %10s %10s %10s %10s " +
+                "%10s %10s %10s %10s %10s %10s\n";
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("조회할 사원번호는?");
+        String empid = sc.nextLine();
+
+        EmployeeVo emp = EmployeeV3DAO.selectOneEmp(empid);
+
+        String result = String.format(fmt, emp.getEmpno(),emp.getFname(),emp.getLname(),
+                emp.getEmail(),emp.getPhone(),emp.getHdate(),emp.getJobid(),emp.getSal(),
+                emp.getComm(),emp.getMgrid(),emp.getDeptid());
+
+        System.out.println(result);
+    }
 
 }
