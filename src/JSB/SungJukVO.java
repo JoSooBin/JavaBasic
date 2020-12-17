@@ -44,6 +44,10 @@ public class SungJukVO { //처리의 대상이 되는 데이터들만 넣기
         this.regdate = regdate;
     }
 
+    public SungJukVO() {
+
+    }
+
 
     public String getRegdate() { return regdate; }
 

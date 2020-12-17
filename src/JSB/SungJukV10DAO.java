@@ -96,4 +96,54 @@ public class SungJukV10DAO {
         return sj;
     }
 
+    //수정할 성적번호를 매개변수로 넘겨주면 성적 테이블에서 해당 데이터를 수정함
+    public static String updateSungJuk(SungJukVO sj) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        String result = "성적데이터 수정처리중....";
+
+        conn = SungJukJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(SungJukJDBC.updateSungJuk);
+            pstmt.setInt(1,sj.getKor());
+            pstmt.setInt(2,sj.getEng());
+            pstmt.setInt(3,sj.getMat());
+            pstmt.setInt(4,sj.getSum());
+            pstmt.setDouble(5,sj.getMean());
+            pstmt.setString(6,sj.getGrd()+"");
+            pstmt.setInt(7,sj.getSjno());
+
+            int cnt = pstmt.executeUpdate();
+            if (cnt > 0) result = "성적데이터 수정완료";
+        } catch (SQLException se) {
+            System.out.println("updateSungJuk에서 오류발생");
+            se.printStackTrace();
+        }
+        SungJukJDBC.destoryConn(conn,pstmt);
+
+        return result;
+    }
+
+    //삭제할 성적번호를 매개변수로 넘겨주면 sungjuk테이블에서 해당 데이터를 삭제함
+    public static String deleteSungJuk(int sjno) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        String result = "성적데이터 삭제 처리중...";
+
+        conn = SungJukJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(SungJukJDBC.delectSungJuk);
+            pstmt.setInt(1,sjno);
+
+            int cnt = pstmt.executeUpdate();
+            if (cnt > 0) result = "성적데이터 삭제 완료";
+        } catch (SQLException se) {
+            System.out.println("delectSungJuk에서 오류류");
+           se.printStackTrace();
+        }
+        SungJukJDBC.destoryConn(conn,pstmt);
+
+        return result;
+    }
+
 }
