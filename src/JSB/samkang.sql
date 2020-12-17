@@ -1,0 +1,11 @@
+alter table 제품 add constraint primary key (제품번호);
+alter table 주문항목 add constraint primary key (주문번호,제품번호);
+alter table 주문항목 add constraint foreign key (제품번호) references 제품(제품번호);
+alter table 운송 add constraint primary key (운송ID);
+alter table 직원 add constraint primary key (인사번호);
+alter table 주문 add constraint primary key (주문번호);
+alter table 고객 add constraint primary key (고객번호);
+alter table 주문항목 add constraint foreign key (주문번호) references 주문(주문번호);
+alter table 운송 add constraint foreign key (주문번호) references 주문(주문번호);
+alter table 주문 add constraint foreign key (인사번호) references 직원(인사번호);
+alter table 주문 add constraint foreign key (고객번호) references 고객(고객번호);
