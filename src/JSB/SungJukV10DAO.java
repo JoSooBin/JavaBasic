@@ -137,8 +137,7 @@ public class SungJukV10DAO {
 
             int cnt = pstmt.executeUpdate();
             if (cnt > 0) result = "성적데이터 삭제 완료";
-        } catch (SQLException se) {
-            System.out.println("delectSungJuk에서 오류류");
+        } catch (SQLException se) { System.out.println("delectSungJuk에서 오류 발생");
            se.printStackTrace();
         }
         SungJukJDBC.destoryConn(conn,pstmt);

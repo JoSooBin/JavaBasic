@@ -29,6 +29,13 @@ where sjno=1;
 -- 성적삭제
 delete from sungjuk where sjno =1;
 
+
+-- 사원추가
+select employee_id, last_name,email,job_id,manager_id,department_id
+from employess;
+
+-- 사원 상세조회
+
 --
 select sysdate();
 
@@ -50,3 +57,6 @@ update employees
 set first_name = '',last_name = '', email = '',phone_number = '', hire_date = ''
 where employee_id =100;
 
+update employees
+set job_id = '',salary = '',commission_pct='',manager_id='',department_id=''
+where employee_id =100;

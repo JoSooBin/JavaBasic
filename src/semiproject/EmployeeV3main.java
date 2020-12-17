@@ -27,8 +27,10 @@ public class EmployeeV3main {
                     ejsrv.readOneEmployees();
                     break;
                 case "4":
+                    ejsrv.modifyEmployees();
                     break;
                 case "5":
+                    ejsrv.removeEmployees();
                     break;
                 case "0":
                     System.exit(0);

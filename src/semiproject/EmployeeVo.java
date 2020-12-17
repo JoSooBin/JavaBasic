@@ -52,6 +52,15 @@ public class EmployeeVo {
         this.deptid = deptid;
     }
 
+    public EmployeeVo(int empno, String fname, String lname, String email, String phone, String hdate) {
+        this.empno = empno;
+        this.fname = fname;
+        this.email = email;
+        this.lname = lname;
+        this.phone = phone;
+        this.hdate = hdate;
+    }
+
     public EmployeeVo() { }
 
     //getter/setter

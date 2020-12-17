@@ -1,5 +1,7 @@
 package semiproject;
 
+import JSB.SungJukJDBC;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -76,7 +78,7 @@ public class EmployeeV3DAO {
 
         conn = EmployeeJDBC.makeConn();
         try {
-            pstmt = conn.prepareStatement(EmployeeJDBC.insertEmp);
+            pstmt = conn.prepareStatement(EmployeeJDBC.insertEMP);
             pstmt.setInt(1,emp.getEmpno());
             pstmt.setString(2,emp.getFname());
             pstmt.setString(3,emp.getLname());
@@ -95,6 +97,52 @@ public class EmployeeV3DAO {
             System.out.println("insertEmp에서 오류 발생");
             se.printStackTrace();
         }
+
+        return result;
+    }
+
+    public static String deleteEmp(int empid) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        String result = "사원정보 삭제처리중....";
+
+        conn = EmployeeJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(EmployeeJDBC.delectEMP);
+            pstmt.setInt(1, empid);
+            int cnt = pstmt.executeUpdate();
+            if (cnt>0) result = "사원정보 삭제완료";
+        } catch (SQLException se) {
+            System.out.println("delectEMP에서 오류 발생");
+            se.printStackTrace();
+        }
+        EmployeeJDBC.destoryConn(conn,pstmt);
+
+        return result;
+    }
+
+    //수정할 사원 정보를 넘겨받아
+    public static String updateEmp(EmployeeVo emp){
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        String result = "사원정보 수정중.....";
+
+        conn = EmployeeJDBC.makeConn();
+        try {
+            pstmt = conn.prepareStatement(EmployeeJDBC.updateEMP);
+            pstmt.setString(1, emp.getFname());
+            pstmt.setString(2, emp.getLname());
+            pstmt.setString(3, emp.getEmail());
+            pstmt.setString(4, emp.getPhone());
+            pstmt.setString(5, emp.getHdate());
+            pstmt.setInt(6, emp.getEmpno());
+            int cnt = pstmt.executeUpdate();
+            if (cnt>0) result = "사원정보 수정완료";
+        } catch (SQLException se) {
+            System.out.println("updateEMP에서 오류 발생");
+            se.printStackTrace();
+        }
+        EmployeeJDBC.destoryConn(conn,pstmt);
 
         return result;
     }
