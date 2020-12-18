@@ -30,16 +30,37 @@ public class SamKwangFinalV1Service {
     public void readCODP() {
         String fmt = "%10s %10s %10s %10s\n%10s %10s %10s %10s\n";
         StringBuilder sb = new StringBuilder();
+        String result = "";
 
-        ArrayList<> codp = SamKwangFinalV1DAO.selectCODP();
+        ArrayList<SamKwangCODPVO> codps = SamKwangFinalV1DAO.selectCODP();
 
-        for(){
-
+        for(SamKwangCODPVO codp : codps){
+            result = String.format(fmt,codp.get고객번호(),codp.get고객이름(),codp.get주문번호(),codp.get주문일().substring(0,10),
+                    codp.get제품번호(), codp.get수량(),codp.get제품이름(),codp.get단가());
+            sb.append(result);
         }
         System.out.println(sb.toString());
     }
 
     public void readOneCODP() {
+        StringBuilder sb = new StringBuilder();
+        String fmt = "%10s %10s %10s %10s %10s\n%10s %10s %10s %10s %10s\n%10s %10s %10s %10s %10s %10s\n------------------------------------------\n";
+        String result = "";
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("조회할 주문번호는?");
+        int 주문번호 = sc.nextInt();
+
+        ArrayList<SamKwangCODPVO> codps = SamKwangFinalV1DAO.selectOneCODP(주문번호);
+
+        for(SamKwangCODPVO codp : codps){
+             result = String.format(fmt, codp.get제품번호(), codp.get주문번호(), codp.get고객번호(), codp.get고객이름(),
+                    codp.get주소(), codp.get시도(), codp.get우편번호(), codp.get전화번호(), codp.get주문일().substring(0, 10),
+                    codp.get납기일().substring(0, 10), codp.get인사번호(), codp.get수량(), codp.get제품이름(),
+                    codp.get제품분류(), codp.get단가(), codp.get재고량());
+            sb.append(result);
+        }
+        System.out.println(sb.toString());
     }
 
     public void readSOE() {

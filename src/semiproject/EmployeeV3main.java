@@ -12,7 +12,7 @@ public class EmployeeV3main {
         Scanner sc = new Scanner(System.in);
         String menu = "";
 
-        while (true) { //메뉴 띄우고 작업번호 입력을 반복
+        while (true) { //메뉴 띄우고 작업번호 입력을 반복xvv286
             ejsrv.displayMenu();
             menu = sc.nextLine();
 

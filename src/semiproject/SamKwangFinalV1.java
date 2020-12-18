@@ -2,6 +2,7 @@ package semiproject;
 /*
 * SamKwangFinalV1
 * 비즈니스 관리 프로그램 진입점
+* DB -> table -> VO -> (interface) ->Main -> Service -> DAO
 * */
 import java.util.Scanner;
 
