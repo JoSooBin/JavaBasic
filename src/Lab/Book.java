@@ -21,4 +21,5 @@ public class Book {
         this.price = price;
         this.discount = discount;
     }
+
 }
