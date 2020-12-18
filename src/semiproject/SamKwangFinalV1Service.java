@@ -1,5 +1,7 @@
 package semiproject;
 
+import JSB.samkangSOEVO;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -64,8 +66,35 @@ public class SamKwangFinalV1Service {
     }
 
     public void readSOE() {
+        String fmt = "%10s %10s %10s %10s %10s %10s\n";
+        StringBuilder sb = new StringBuilder();
+        String result = "";
+
+        ArrayList<samkangSOEVO> soes = SamKwangFinalV1DAO.selectSOE();
+
+        for(samkangSOEVO soe : soes){
+            result = String.format(fmt,soe.get인사번호(),soe.get주문번호(),soe.get운송ID(),soe.get운송이름(),
+                    soe.get주문일().substring(0,10), soe.get직책());
+            sb.append(result);
+        }
+        System.out.println(sb.toString());
     }
 
     public void readOneSOE() {
+        String fmt = "%10s %10s %10s %10s %10s %10s\n %10s %10s %10s %10s %10s %10s %10s\n";
+        String result = "찾으시는 운송ID가 존재하지 않습니다";
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("조회할 운송ID는?");
+        int 운송ID = sc.nextInt();
+
+        samkangSOEVO soe = SamKwangFinalV1DAO.selectOneSOE(운송ID);
+
+        if(soe != null)
+        result = String.format(fmt, soe.get인사번호(), soe.get주문번호(), soe.get운송ID(), soe.get운송이름(),
+                soe.get담당자전화번호(), soe.get주문일(), soe.get납기일(), soe.get고객번호(), soe.get주민등록번호(),
+                soe.get성명(), soe.get소속부서(), soe.get직책(), soe.get입사일().substring(0, 10));
+
+        System.out.println(result);
     }
 }
